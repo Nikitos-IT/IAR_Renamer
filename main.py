@@ -25,10 +25,14 @@ class ExampleApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
         self.label_3.setText("Ver 3.3") #Версия программы
         project_t = glob.glob("*.ewp")
         if not project_t:                
-            self.textBrowser.setText("Косяки и хотелки пишите на kashirihin@mail.ru" + '\n' + "Не вижу файл проекта" + '\n' + "--------------------------------" + '\n')
+            self.textBrowser.setText("Косяки и хотелки пишите на kashirihin@mail.ru" + '\n' +
+                                     "https://github.com/Nikitos-IT/IAR_Renamer" + '\n' +
+                                     "Не вижу файл проекта" +
+                                     '\n' + "--------------------------------" + '\n')
         else:
-            self.textBrowser.setText(
-                "Косяки и хотелки пишите на kashirihin@mail.ru" + '\n' + "--------------------------------" + '\n')
+            self.textBrowser.setText("Косяки и хотелки пишите на kashirihin@mail.ru" + '\n' +
+                                     "https://github.com/Nikitos-IT/IAR_Renamer" + '\n' +
+                                     "--------------------------------" + '\n')
             old_name_t = project_t[0]
             size_str_t = len(old_name_t)
             old_name_t = old_name_t[:size_str_t - 4]
