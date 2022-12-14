@@ -22,11 +22,13 @@ class ExampleApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
         self.setupUi(self)
         self.pushButton.clicked.connect(self.Start_Rename) 
         self.lineEdit.returnPressed.connect(self.Start_Rename)
-        self.label_3.setText("Ver 3.2") #Версия программы
+        self.label_3.setText("Ver 3.3") #Версия программы
         project_t = glob.glob("*.ewp")
         if not project_t:                
-            self.textBrowser.setText("Не вижу файл проекта" + '\n' + "--------------------------------" + '\n')
-        else:  
+            self.textBrowser.setText("Косяки и хотелки пишите на kashirihin@mail.ru" + '\n' + "Не вижу файл проекта" + '\n' + "--------------------------------" + '\n')
+        else:
+            self.textBrowser.setText(
+                "Косяки и хотелки пишите на kashirihin@mail.ru" + '\n' + "--------------------------------" + '\n')
             old_name_t = project_t[0]
             size_str_t = len(old_name_t)
             old_name_t = old_name_t[:size_str_t - 4]
@@ -42,9 +44,11 @@ class ExampleApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
         
        str4brouse = ''
        name = self.lineEdit.text()
+
        if name == '':
         Send_txt("Не введено имя проекта")
-        Send_txt("--------------------------------") 
+        Send_txt("--------------------------------")
+
         
        else:
            Send_txt("Новое имя проекта: " + name)
@@ -73,14 +77,29 @@ class ExampleApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
                     Send_txt("Удален settings/" + files[i])
                     
                 dir = os.path.abspath(os.curdir)
-                dir = dir + '\Code\Obj'                
+                Test_dir = ''
+                with os.scandir(dir) as listOfEntries:
+                    for entry in listOfEntries:
+                        if entry.is_dir():
+
+                            try:
+                                Test_dir = dir + "\\" + str(entry.name) + '\Obj'
+                                files2 = os.listdir(Test_dir)
+                                print(Test_dir, "Тут есть обж")
+                                break
+
+                            except:
+                                print(Test_dir,"Тут нет обж")
+
+
+                dir = Test_dir
                 files = os.listdir(dir)
                 size = len(files)
                 for i in range(size):
                  if files[i].find(old_name) != -1:                
                     pathdel = os.path.join(dir, files[i])
                     os.remove(pathdel)
-                    Send_txt("Удален Code/Obj/" + files[i])
+                    Send_txt("Удален /Obj/" + files[i])
 
            project = glob.glob("*.ewp");
            if not project:                

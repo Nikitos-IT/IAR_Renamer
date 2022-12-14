@@ -51,7 +51,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Renamer IAR 8.xx"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Renamer IAR"))
         self.label_3.setText(_translate("MainWindow", "Ver 3.0"))
         self.label.setText(_translate("MainWindow", "НЕ ЗАБЫВАЕМ ИЗМЕНИТЬ ВЕРСИЮ ПРОШИВКИ В САМОЙ ПРОШИВКЕ!!!!!"))
         self.label_2.setText(_translate("MainWindow", "Введите новое имя проекта"))
